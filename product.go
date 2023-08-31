@@ -31,3 +31,11 @@ func (item *Product) printDetails(i int) {
 	fmt.Println("Id:", i, "Product:", item.name, "Price:", item.price, "Calc price:", item.calcPrice(item.price),
 		"Supplier:", item.Supplier.name)
 }
+
+func (item *Product) getName() string {
+	return item.name
+}
+
+func (item *Product) getCost(_ bool) float64 {
+	return item.calcPrice(item.price)
+}

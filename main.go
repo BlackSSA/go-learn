@@ -1,11 +1,18 @@
 package main
 
+import "fmt"
+
 func calcWithTax(price float64) float64 {
 	return price + price*0.2
 }
 
 func calcWithoutTax(price float64) float64 {
 	return price
+}
+
+type Expense interface {
+	getName() string
+	getCost(annual bool) float64
 }
 
 func main() {
@@ -18,9 +25,15 @@ func main() {
 	}
 
 	insurance := newService("Boat Cover", 12, 89.50)
-	insurance.printDetails(0)
+	pr := products[:]
+	expensive := []Expense{insurance}
+	append(expensive, pr...)
 
-	for key, item := range products {
-		item.printDetails(key)
-	}
+	//expensive = append(expensive, products)
+
+	fmt.Println(expensive[0].getName())
+
+	// for key, item := range products {
+	// 	item.printDetails(key)
+	// }
 }
