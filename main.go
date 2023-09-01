@@ -25,15 +25,12 @@ func main() {
 	}
 
 	insurance := newService("Boat Cover", 12, 89.50)
-	pr := products[:]
 	expensive := []Expense{insurance}
-	append(expensive, pr...)
+	for _, v := range products {
+		expensive = append(expensive, v)
+	}
 
-	//expensive = append(expensive, products)
-
-	fmt.Println(expensive[0].getName())
-
-	// for key, item := range products {
-	// 	item.printDetails(key)
-	// }
+	for _, item := range expensive {
+		fmt.Println(item.getName())
+	}
 }
