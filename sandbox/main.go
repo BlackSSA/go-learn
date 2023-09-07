@@ -15,6 +15,14 @@ type Expense interface {
 	getCost(annual bool) float64
 }
 
+func totalPrice(list []Expense) float64 {
+	var total float64
+	for _, item := range list {
+		total += item.getCost(true)
+	}
+	return total
+}
+
 func main() {
 	acme := &Supplier{"Acme Co", "New York"}
 	products := []*Product{
@@ -33,4 +41,5 @@ func main() {
 	for _, item := range expensive {
 		fmt.Println(item.getName())
 	}
+	fmt.Println("Total price:", totalPrice(expensive))
 }
