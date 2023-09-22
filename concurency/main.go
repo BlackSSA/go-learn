@@ -3,5 +3,7 @@ package main
 import "fmt"
 
 func main() {
-	fmt.Println("Hello, concurency")
+	fmt.Println("main function started")
+	CalcStoreTotal(Products)
+	fmt.Println("main function complete")
 }
