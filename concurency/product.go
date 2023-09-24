@@ -1,6 +1,9 @@
 package main
 
-import "strconv"
+import (
+	"fmt"
+	"strconv"
+)
 
 type Product struct {
 	Name, Category string
@@ -9,12 +12,12 @@ type Product struct {
 
 var ProductList = []*Product{
 	{"Kayak", "Watersports", 279},
-	{"Lifejacket", "Watersports", 49.95},
 	{"Soccer Ball", "Soccer", 19.50},
 	{"Corner Flags", "Soccer", 34.95},
 	{"Stadium", "Soccer", 79500},
 	{"Thimking Cap", "Chess", 16},
 	{"Unsteady Chair", "Chess", 1200},
+	{"Lifejacket", "Watersports", 49.95},
 }
 
 type ProductGroup []*Product
@@ -34,4 +37,5 @@ func init() {
 			Products[p.Category] = ProductGroup{p}
 		}
 	}
+	fmt.Println("Init complete")
 }
